@@ -42,7 +42,7 @@ def processRequest(req):
 
     r = requests.get('http://ranchi.urjamitra.in/urjamitra/admin/mis/svc/df_consumer_details.php?consumer_no=57802')
     json_object = r.json()
-    condition = json_object["name"]
+    condition = json_object[0]["name"]
     speech = "The forecast for "+city+ " for "+date+" is "+condition
     return {
     "fulfillmentText": speech
