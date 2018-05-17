@@ -22,7 +22,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
     return r
 
-def makeResponse(req):
+def processRequest(req):
     if req.get("result").get("action") != "fetchWeatherForecast":
         return {}
     result = req.get("result")
