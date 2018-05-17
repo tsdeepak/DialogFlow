@@ -39,14 +39,15 @@ def processRequest(req):
         #if date in weather[i]['dt_txt']:
         condition= weather[i]['weather'][0]['description']
         #    break
-    speech = "The forecast for"+city+ "for "+date+" is "+condition
+    speech = "The forecast for "+city+ " for "+date+" is "+condition
     return {
-    "speech": speech,
-    "displayText": speech,
-    "source": "apiai-weather-webhook"
+    "fulfillmentText": speech
+    # ,
+    # "displayText": speech,
+    # "source": "apiai-weather-webhook"
     }
 
-if __name__ == '__main__':
+if __name__ == '__main__':  
     port = int(os.getenv('PORT', 5000))
     print("Starting app on port %d" % port)
     app.run(debug=False, port=port, host='0.0.0.0')
