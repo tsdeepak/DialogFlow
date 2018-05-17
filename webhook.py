@@ -32,13 +32,17 @@ def processRequest(req):
     date = parameters.get("date")
     if city is None:
         return None
-    r=requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=06f070197b1f60e55231f8c46658d077')
-    json_object = r.json()
-    weather=json_object['list']
-    for i in range(0,30):
+    # r=requests.get('http://api.openweathermap.org/data/2.5/forecast?q='+city+'&appid=06f070197b1f60e55231f8c46658d077')
+    # json_object = r.json()
+    # weather=json_object['list']
+    # for i in range(0,30):
         #if date in weather[i]['dt_txt']:
-        condition= weather[i]['weather'][0]['description']
+        # condition= weather[i]['weather'][0]['description']
         #    break
+
+    r = requests.get('http://ranchi.urjamitra.in/urjamitra/admin/mis/svc/df_consumer_details.php?consumer_no=57802')
+    json_object = r.json()
+    condition = json_object["name"]
     speech = "The forecast for "+city+ " for "+date+" is "+condition
     return {
     "fulfillmentText": speech
