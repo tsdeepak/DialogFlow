@@ -25,6 +25,7 @@ def webhook():
 def processRequest(req):
     if req.get("queryResult").get("action") != "fetchWeatherForecast":
         return {}
+    condition = ''
     result = req.get("queryResult")
     parameters = result.get("parameters")
     city = parameters.get("geo-city")
